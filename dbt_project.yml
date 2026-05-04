@@ -38,5 +38,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   my_new_project:
     # Applies to all files under models/example/
+    +materialized: table
     example:
       +materialized: table
+    # この形にすると、test_folder配下のモデルはviewで実行することが可能
+    test_folder:
+      +materialized: view
